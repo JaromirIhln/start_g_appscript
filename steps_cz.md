@@ -62,6 +62,13 @@ Tento návod vás provede základními kroky, jak začít vyvíjet `Google Apps 
 
 ---
 
+## Instalace rozšíření pro zvýraznění syntaxe v VS Code
+
+1. Otevřete VS Code.
+2. Přejděte na panel rozšíření (ikona čtverce na bočním panelu nebo klávesová zkratka `Ctrl+Shift+X`).
+3. Do vyhledávacího pole zadejte `Apps Script Syntax Colors (gas) by Jaromir Ihln`. - je možné, že vám VS Code automaticky nabídne doporučené rozšíření, pro Váš pracovní prostor se souborem `.gs`.
+4. Nainstalujte rozšíření od autora `Jaromir Ihln`.
+
 ## Příklad jednoduchého skriptu pro Google Sheets
 
 Ukázka obsahuje jednoduchý skript, který nastaví hlavičky tabulky, vyplní týdenní plán, nastaví šířku sloupců, zarovná text na střed a změní barvu pozadí prvního řádku.
