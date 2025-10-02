@@ -1,0 +1,72 @@
+clasp - The Apps Script CLI
+
+Options:
+  -v, --version                                      
+      output the current version
+  -A, --auth <file>                                  
+      path to an auth file or a folder with a '.clasprc.json' file. (env: clasp_config_auth)
+  -u,--user <name>                                   
+      Store named credentials. If unspecified, the "default" user is used. (default: "default")
+  --adc                                              
+      Use the application default credentials from the environemnt.
+  -I, --ignore <file>                                
+      path to an ignore file or a folder with a '.claspignore' file. (env: clasp_config_ignore)
+  -P, --project <file>                               
+      path to a project file or to a folder with a '.clasp.json' file. (env: clasp_config_project)        
+  -h, --help                                         
+      display help for command
+
+Commands:
+  login [options]                                    
+      Log in to script.google.com
+  logout                                             
+      Logout of clasp
+  open-credentials-setup                             
+      Open credentials page for the script's GCP project
+  clone-script|clone [options] [scriptId] [versionNumber]  Clone an existing script
+  create-script|create [options]                     
+      Create a script
+  push [options]                                     
+      Update the remote project
+  pull [options]                                     
+      Fetch a remote project
+  create-deployment|deploy [options]                 
+      Deploy a project
+  delete-deployment|undeploy [options] [deploymentId]      Delete a deployment of a project
+  list-deployments|deployments                       
+      List deployment ids of a script
+  update-deployment|redeploy [options] <deploymentId>      Updates a deployment for a project to a new version
+  disable-api <api>                                  
+      Disable a service for the current project.     
+  enable-api <api>                                   
+      Enable a service for the current project.      
+  list-apis|apis                                     
+      List enabled APIs for the current project      
+  open-api-console                                   
+      Open the API console for the current project.  
+  show-authorized-user                               
+      Show information about the current authorizations state.
+  show-file-status|status [options]                  
+      Lists files that will be pushed by clasp       
+  open-logs                                          
+      Open logs in the developer console
+  setup-logs                                         
+      Setup Cloud Logging
+  tail-logs|logs [options]                           
+      Vytisknout nejnovější položky protokolu
+      Otevřete vývojové prostředí Apps Script pro aktuální projekt.
+  open-container                                     
+      Otevřete kontejner pro aktuální projekt.
+  open-web-app [deploymentId]                        
+      Otevřete nasazenou webovou aplikaci v prohlížeči.
+  run-function|run [options] [functionName]          
+      Spustí funkci ve vašem projektu Apps Scripts
+  list-scripts|list [options]                        
+      Vypiš projekty Apps Script
+  create-version|version [description]               
+      Vytvoří neměnnou verzi skriptu
+  list-versions|versions                             
+      Vypiš verze skriptu
+  start-mcp-server|mcp                               
+      Spustí server MCP pro interakci se skriptem aplikace.
+  help [command]    zobrazit nápovědu k příkazu
