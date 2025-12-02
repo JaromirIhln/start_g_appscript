@@ -77,3 +77,38 @@ function vytvorMonthlyCoastSheet() {
   sheet.autoResizeColumns(1, hlavicky[0].length);
   Logger.log('✅ Sheet MonthlyCoast s výdaji vytvořen!');
 }
+/**
+ * Vypíše do Google Sheet 'MonthlyCoast' souhrn: celkový příjem, aktuální výdaje, rozdíl a porovnání s předchozím měsícem.
+ * Ukázková data: příjem 25000 Kč, výdaje 17351 Kč, předchozí výdaje 16200 Kč.
+ */
+function createMonthlySummary() {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var sheet = ss.getSheetByName('MonthlyCoast');
+  if (!sheet) { Logger.log('Sheet MonthlyCoast neexistuje!'); return; }
+  var lastRow = sheet.getLastRow();
+  var summaryRow = lastRow + 2;
+  var prijem = 25000; // ukázkový příjem
+  var vydaje = 17351; // ukázkové výdaje (můžeš nahradit součtem z tabulky)
+  var predchoziVydaje = 16200; // ukázkové výdaje za minulý měsíc
+  var rozdil = prijem - vydaje;
+  var mezimesicniZmena = vydaje - predchoziVydaje;
+  sheet.getRange(summaryRow, 1, 1, 5).setValues([[
+    '', 'Souhrn', '', '', ''
+  ]]);
+  sheet.getRange(summaryRow + 1, 1, 1, 5).setValues([[
+    '', 'Celkový příjem', prijem, '', ''
+  ]]);
+  sheet.getRange(summaryRow + 2, 1, 1, 5).setValues([[
+    '', 'Aktuální výdaje', vydaje, '', ''
+  ]]);
+  sheet.getRange(summaryRow + 3, 1, 1, 5).setValues([[
+    '', 'Rozdíl', rozdil, '', ''
+  ]]);
+  sheet.getRange(summaryRow + 4, 1, 1, 5).setValues([[
+    '', 'Výdaje minulý měsíc', predchoziVydaje, '', ''
+  ]]);
+  sheet.getRange(summaryRow + 5, 1, 1, 5).setValues([[
+    '', 'Meziroční změna', mezimesicniZmena, '', ''
+  ]]);
+  Logger.log('✅ Souhrn příjmů a výdajů zapsán!');
+}
