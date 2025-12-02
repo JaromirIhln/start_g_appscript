@@ -108,7 +108,7 @@ function createMonthlySummary() {
     '', 'Výdaje minulý měsíc', predchoziVydaje, '', ''
   ]]);
   sheet.getRange(summaryRow + 5, 1, 1, 5).setValues([[
-    '', 'Meziroční změna', mezimesicniZmena, '', ''
+    '', 'Měsíční změna', mezimesicniZmena, '', ''
   ]]);
   Logger.log('✅ Souhrn příjmů a výdajů zapsán!');
 }
