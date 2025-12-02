@@ -258,12 +258,10 @@ function vytvorPivotAnalyzu() {
   }
   
   // Vytvoří nový list pro analýzu
-  var analyzaSheet;
-  try {
-    analyzaSheet = ss.getSheetByName('Analýza hodin');
-    if (analyzaSheet) ss.deleteSheet(analyzaSheet);
-  } catch(e) {}
-  
+  var analyzaSheet = ss.getSheetByName('Analýza hodin');
+  if (analyzaSheet) {
+    ss.deleteSheet(analyzaSheet);
+  }
   analyzaSheet = ss.insertSheet('Analýza hodin');
   
   // Získání dat
@@ -273,7 +271,7 @@ function vytvorPivotAnalyzu() {
     return;
   }
   
-  var data = dataSheet.getRange(1, 1, posledniRadek, 9).getValues();
+  var data = dataSheet.getRange(1, 1, posledniRadek, 6).getValues();
   
   // Kontrola validity dat a sheetu
   if (!analyzaSheet || !data || data.length < 2) {
@@ -307,9 +305,10 @@ function vytvorTydenníPrehled(sheet, data) {
   for (var i = 1; i < data.length; i++) {
     try {
       var datum = data[i][0];
+      var den = data[i][1];
       var hodiny = data[i][5];
-      
-      if (datum && typeof datum === 'object' && hodiny && !isNaN(parseFloat(hodiny))) {
+      // Pouze pracovní dny (Po-Pá)
+      if (datum && typeof datum === 'object' && hodiny && !isNaN(parseFloat(hodiny)) && ['Po','Út','St','Čt','Pá'].includes(den)) {
         var tyden = getWeekNumber(datum);
         if (!tydny[tyden]) tydny[tyden] = 0;
         tydny[tyden] += parseFloat(hodiny);
