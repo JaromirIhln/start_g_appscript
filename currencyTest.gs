@@ -55,3 +55,25 @@ function getCnbExratesAverages() {
     Logger.log('Průměrné kurzy nebyly nalezeny pro rok: ' + year);
   }
 }
+/**
+ * Vytvoří Google Sheet 'MonthlyCoast' s ukázkovými výdaji za aktuální měsíc.
+ * Sloupce: Datum, Typ výdaje, Částka, Poznámka, Hotovo
+ */
+function vytvorMonthlyCoastSheet() {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var sheet = ss.getSheetByName('MonthlyCoast');
+  if (!sheet) sheet = ss.insertSheet('MonthlyCoast');
+  else sheet.clear();
+  var hlavicky = [['Datum', 'Typ výdaje', 'Částka', 'Poznámka', 'Hotovo']];
+  var data = [
+    ['2025-12-01', 'Nákupy', 1678, 'Penny', 'ano'],
+    ['2025-12-01', 'Nájem', 13854, 'Sever', 'ano'],
+    ['2025-12-02', 'Internet', 499, 'UPC', 'ne'],
+    ['2025-12-03', 'Elektřina', 1200, 'ČEZ', 'ano'],
+    ['2025-12-05', 'Doprava', 320, 'MHD', 'ne']
+  ];
+  sheet.getRange(1, 1, 1, hlavicky[0].length).setValues(hlavicky);
+  sheet.getRange(2, 1, data.length, hlavicky[0].length).setValues(data);
+  sheet.autoResizeColumns(1, hlavicky[0].length);
+  Logger.log('✅ Sheet MonthlyCoast s výdaji vytvořen!');
+}
