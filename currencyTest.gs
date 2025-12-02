@@ -38,12 +38,12 @@ function getCnbExratesDaily() {
   }
 }
 /**
- * Získá průměrné měsíční kurzy z CNB API (https://api.cnb.cz/cnbapi/exrates/averages) pro zadaný rok.
+ * Získá průměrné měsíční kurzy z CNB API (https://api.cnb.cz/cnbapi/exrates/monthly-averages-year) pro zadaný rok.
  * Rok lze upravit v proměnné 'year' (výchozí je aktuální rok).
  */
 function getCnbExratesAverages() {
   var year = new Date().getFullYear(); // Změň na požadovaný rok
-  var url = 'https://api.cnb.cz/cnbapi/exrates/averages?year=' + year;
+  var url = 'https://api.cnb.cz/cnbapi/exrates/monthly-averages-year?year=' + year;
   var response = UrlFetchApp.fetch(url);
   var json = JSON.parse(response.getContentText());
   if (json.averages && json.averages.length > 0) {
